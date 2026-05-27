@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr-FR"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>VOLCA_FM | CIYLab</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="VOLCA_FM" />
+<meta name="author" content="Pierrick MEIGNEN" />
+<meta property="og:locale" content="fr_FR" />
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<link rel="canonical" href="/VOLCA_FM_MANUAL_FR.html" />
+<meta property="og:url" content="/VOLCA_FM_MANUAL_FR.html" />
+<meta property="og:site_name" content="CIYLab" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="VOLCA_FM" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Pierrick MEIGNEN"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"VOLCA_FM","url":"/VOLCA_FM_MANUAL_FR.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CIYLab" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CIYLab</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/CVGATE_tools_MANUAL_FR.html">CVGATE_tools</a><a class="page-link" href="/MIDI2CVGATE_MANUAL_FR.html">MIDI2CVGATE</a><a class="page-link" href="/MIDI_tools_MANUAL_FR.html">MIDI_tools</a><a class="page-link" href="/VOLCA_FM_MANUAL_FR.html">VOLCA_FM</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">VOLCA_FM</h1>
+  </header>
+
+  <div class="post-content">
+    <p><img src="./assets/images/VOLCA_FM_menus.png" alt="Paramètres" /></p>
+
+<h2 id="présentation">PRÉSENTATION</h2>
+<p>Le code permet au module MIDI TOOLS de modifier, par NPRN, 59 des 156 paramètres du Volca FM sous firmware 1.09, réduit à 4-OP pour simplifier la maîtrise FM sur le modèle du Yamaha FB-01. Un contrôleur MIDI externe peut aussi être utilisé (CC1 à CC59).</p>
+
+<h2 id="mode-demploi">MODE D’EMPLOI</h2>
+<p>À la mise sous tension, l’écran affiche pendant quelques secondes un message d’information finissant par le numéro de version :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> SEND SYSEX TO   
+ VOLCA FM 4-OP   
+ BY CIYLAB       
+ vx.y.z
+</code></pre></div></div>
+
+<p>Pour choisir les paramètres, il faut tourner l’encodeur PARAMETER au-dessus de l’écran.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ALGO    FDBCK   
+ ADSR    MINLVL  
+ OUT    &gt;LFO     
+ PITCH   SCALING
+</code></pre></div></div>
+
+<p>Ce même encodeur PARAMETER permet (sauf pour le choix de l’algorithme et du feedback) d’afficher la liste des paramètres par simple pression et de sélectionner le paramètre qu’on souhaite modifier.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;SPEED   DELAY   
+ DEPTH   WAVE    
+ PMS
+
+</code></pre></div></div>
+
+<p>Une nouvelle pression permet de revenir au menu principal.</p>
+
+<p>Une fois le paramètre sélectionné, l’encodeur VALUE en dessous de l’écran permet d’en modifier la valeur. À noter qu’une rotation d’un seul cran de l’encodeur VALUE affiche la valeur sans la modifier. Une pression sur cet encodeur affiche le nom du paramètre.</p>
+
+<p><strong>Reboot</strong> : une pression longue sur l’encodeur PARAMETER redémarre le module.</p>
+
+<p><strong>Control Change</strong> : le module réagit aux messages CC dont le numéro est celui de l’un des 45 paramètres. Par exemple le CC 2 gère la quantité de feedback.</p>
+
+<h2 id="fdbck">FDBCK</h2>
+
+<p>Le niveau de ré-insertion du signal. Provoque en général une saturation assimilable à du bruit.</p>
+
+<h2 id="adsr">ADSR</h2>
+
+<p>Cette page gère l’enveloppe pour chacun des 4 opérateurs :</p>
+
+<ul>
+  <li><strong>A</strong> plus la valeur est élevée pour l’attaque est rapide</li>
+  <li><strong>D</strong> règle la durée de la chute de l’attaque</li>
+  <li><strong>S</strong> règle le niveau de la tenue</li>
+  <li><strong>R</strong> règle la pente du relachement</li>
+</ul>
+
+<p>Les valeurs par défaut sont 99, 99, 99 et 0.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>une enveloppe de DX7 (volca FM) dépend de 8 paramètres.</li>
+</ul>
+
+<p><img src="./assets/images/EG.jpg" alt="enveloppe du DX7" /></p>
+
+<p>Ici nous choissisons A = R1, D = R2, S = L3, R = R4, L2 = L3 et R3 = 0. Le volume minimal est L4 (paramètre de la page MINLVL) initialisé au maximum pour un son tenue comme sur un synthétiseur analogique.</p>
+
+<h2 id="algo">ALGO</h2>
+
+<p>Pour le choix de l’un des 8 algorithmes, le premier par défaut.</p>
+
+<h3 id="correspondance-des-numéros-dalgorithme">Correspondance des numéros d’algorithme</h3>
+
+<p>Les opérateurs 1 et 2 du volca sont désactivés</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">FB-01</th>
+      <th style="text-align: right">volca FM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">14</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">8</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">7</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">22</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">7</td>
+      <td style="text-align: right">31</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">8</td>
+      <td style="text-align: right">32</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="affichage-oled">Affichage oled</h3>
+
+<h4 id="algorithme-1">algorithme 1</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      4]
+    2-3
+    1
+    *
+</code></pre></div></div>
+
+<h4 id="algorithme-2">algorithme 2</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      4]
+    3-2
+      1
+      *
+</code></pre></div></div>
+
+<h4 id="algorithme-3">algorithme 3</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    4
+    3
+    1-2]
+    *
+</code></pre></div></div>
+
+<h4 id="algorithme-4">algorithme 4</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    4]
+    3
+    1-2
+    *
+</code></pre></div></div>
+
+<h4 id="algorithme-5">algorithme 5</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    2  4]
+    1  3
+    *  *
+</code></pre></div></div>
+
+<h4 id="algorithme-6">algorithme 6</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+       4]
+    1  2  3
+    *  *  *
+</code></pre></div></div>
+
+<h4 id="algorithme-7">algorithme 7</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+          4]
+    1  2  3
+    *  *  *
+</code></pre></div></div>
+
+<h4 id="algorithme-8">algorithme 8</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+    1  2  3  4]
+    *  *  *  *
+</code></pre></div></div>
+
+<h2 id="lfo">LFO</h2>
+
+<p>Cette page gère l’action du LFO sur le pitch (effet de vibrato) :</p>
+
+<ul>
+  <li><strong>SPEED</strong> vitesse</li>
+  <li><strong>DELAY</strong> durée avant activation</li>
+  <li><strong>DEPTH</strong> amplitude</li>
+  <li><strong>WAVE</strong> forme de l’enveloppe</li>
+  <li><strong>MSP</strong> sensibilité</li>
+</ul>
+
+<p>Les valeurs par défaut sont nulles.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>si la sensibilité est nulle alors aucune modulation n’est appliquée</li>
+  <li>l’enveloppe 5 est aléatoire</li>
+</ul>
+
+<h2 id="minlvl">MINLVL</h2>
+
+<p>Cette page gère le niveau minimum du son avant et après l’application de l’enveloppe (paramètre L4 du DX7). La valeur 0 correspond au cas classique où le son n’est produit que pendant la durée de l’enveloppe. La valeur maximum de 99 correspond au cas où la durée du son est infinie.</p>
+
+<h2 id="out">OUT</h2>
+
+<p>Cette page gère le niveau de sortie pour chaque opérateurs. Le résultat audio est défférent s’il s’agit d’une porteuse ou d’un modulateur.</p>
+
+<ul>
+  <li><strong>LVL</strong> le niveau de sortie</li>
+  <li><strong>KVS</strong> sensibilité au clavier (0 = amplitude indépendante toujours au maximum)</li>
+</ul>
+
+<p>Les valeurs par défaut sont 99 et 0.</p>
+
+<h2 id="pitch">PITCH</h2>
+
+<p>Cette page gère le rapport des fréquences pour chaque opéateurs.</p>
+
+<ul>
+  <li><strong>FREQ</strong> le rapport des fréquences</li>
+</ul>
+
+<p>Les valeurs par défaut sont 0 correspondant à l’octave inférieure.</p>
+
+<h2 id="scaling">SCALING</h2>
+
+<p>Cette page gère l’amplitude sonore en fonction de la position de la note par rapport à une note de référence (break point)</p>
+
+<ul>
+  <li><strong>LDE</strong> le niveau gauche</li>
+  <li><strong>RDE</strong> le niveau droit</li>
+  <li><strong>LCU</strong> la courbe gauche de sensibilité</li>
+  <li><strong>RCU</strong> la courbe droite de sensibilité</li>
+  <li><strong>BRK</strong> note de référence</li>
+  <li><strong>KRS</strong> sensibilité au clavier</li>
+</ul>
+
+<p>Les valeurs par défaut sont nulles.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>par exemple si on monte RDE alors les notes à droite de BRK seront moins audible.</li>
+  <li>le réglage ne porte que sur le premier opérateur en général porteur.</li>
+</ul>
+
+<h2 id="mise-à-jour">MISE À JOUR</h2>
+
+<p>En cas de :</p>
+
+<ul>
+  <li>correction de bugs</li>
+  <li>ajout de fonctionnalités</li>
+</ul>
+
+<p>le dernier firmware au format Intel HEX sera toujours à votre disposition sur le site <a href="https://ciylab.com">CIYLab</a>.</p>
+
+<p>Pour le développement de votre propre code, il est conseillé de retirer le micro-controleur et de le remplacer par le vôtre.</p>
+
+<p>Vous pouvez notifier tout dysfonctionnement par email avec le protocole précis permettant sa reproductabilité à l’adresse <a href="mailto:contact@ciylab.com">contact@ciylab.com</a>.</p>
+
+<h2 id="données-techniques">DONNÉES TECHNIQUES</h2>
+
+<p><strong>Alimentation</strong> :</p>
+
+<ul>
+  <li>Bus Eurorack : +12v 23mA</li>
+</ul>
+
+<p><strong>Dimensions</strong> :</p>
+
+<ul>
+  <li>largeur : 8HP</li>
+  <li>profondeur : 27mm</li>
+</ul>
+
+<p><strong>Librairies</strong> :</p>
+
+<ul>
+  <li>MIDI Library            5.0.2</li>
+  <li>SPI                     1.0</li>
+  <li>Versatile_RotaryEncoder 1.3.1</li>
+  <li>U8g2                    2.35.30</li>
+  <li>Wire                    1.0</li>
+</ul>
+
+<p><strong>Plateforme</strong> :</p>
+
+<ul>
+  <li>arduino:megaavr         1.8.8</li>
+  <li>thinary:avr             1.0.0</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CIYLab</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CIYLab</li><li><a class="u-email" href="mailto:contact@ciylab.com">contact@ciylab.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ciylab"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ciylab</span></a></li><li><a href="https://youtube.com/ciylab"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#youtube"></use></svg> <span class="username">ciylab</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
