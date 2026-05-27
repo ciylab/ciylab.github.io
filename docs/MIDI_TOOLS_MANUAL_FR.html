@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr-FR"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>MIDI_TOOLS | CIYLab</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="MIDI_TOOLS" />
+<meta name="author" content="Pierrick MEIGNEN" />
+<meta property="og:locale" content="fr_FR" />
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<link rel="canonical" href="/MIDI_TOOLS_MANUAL_FR.html" />
+<meta property="og:url" content="/MIDI_TOOLS_MANUAL_FR.html" />
+<meta property="og:site_name" content="CIYLab" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="MIDI_TOOLS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Pierrick MEIGNEN"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"MIDI_TOOLS","url":"/MIDI_TOOLS_MANUAL_FR.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CIYLab" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">CIYLab</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/MIDI_TOOLS_MANUAL_FR.html">MIDI_TOOLS</a><a class="page-link" href="/VOLCA_FM_MANUAL_FR.html">VOLCA_FM</a><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">MIDI_TOOLS</h1>
+  </header>
+
+  <div class="post-content">
+    <p><img src="./assets/images/MIDI_TOOLS_menus.png" alt="Paramètres" /></p>
+
+<h2 id="présentation">PRÉSENTATION</h2>
+<p>Ce code permet de générer ou modifier des signaux MIDI entrants.</p>
+
+<h2 id="mode-demploi">MODE D’EMPLOI</h2>
+<p>À la mise sous tension, l’écran affiche pendant quelques secondes un message d’information :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  MIDI TOOLS
+  FOR SYNTH
+  BY CIYLAB
+  VX.Y.Z
+</code></pre></div></div>
+
+<p>suivi du numéro de version.</p>
+
+<p>Pour choisir un des algorithmes installés, il faut tourner l’encodeur PARAMETER au-dessus de l’écran.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;TIME    5-SEQ 
+ ARPEGG  COMPAR
+ DELAY   LOOPER
+ EUCLID  RANDOM 
+</code></pre></div></div>
+
+<p>Ce même encodeur PARAMETER permet ensuite d’afficher la liste des paramètres par simple pression et de sélectionner le paramètre qu’on souhaite modifier.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> IN      OUT
+&gt;UNDO    RECORD
+ DELETE  LENGTH
+
+</code></pre></div></div>
+
+<p>Une nouvelle pression permet de revenir à la liste des algorithmes.</p>
+
+<p>Une fois le paramètre sélectionné, l’encodeur VALUE en dessous de l’écran permet d’en modifier la valeur. À noter qu’une rotation d’un seul cran de l’encodeur VALUE affiche la valeur sans la modifier. On modifie la valeur par rotation ou par pression suivant le type de paramètre.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> IN      OUT
+&gt;OFF     RECORD
+ DELETE  LENGTH
+
+</code></pre></div></div>
+
+<p><strong>MIDI panic</strong> : même si le code ne devrait pas le permettre, il peut arriver qu’un message de note on soit envoyé mais pas le message de note off correspondant. Pour remédier à ce problème une pression longue sur l’encodeur VALUE envoie les 127 note off sur le canal de sortie de l’algorithme sélectionné.</p>
+
+<p><strong>Silence</strong> : Une pression sur l’encodeur VALUE pour le canal de sortie OUT permet de fermer temporairement le canal.</p>
+
+<p><strong>Reboot</strong> : une pression longue sur l’encodeur PARAMETER redémarre le module.</p>
+
+<p><strong>Program Change</strong> : le module réagit aux messages PC</p>
+
+<p><strong>Control Change</strong> : le module réagit aux messages CC dont le numéro est celui du paramètre. Par exemple le CC 2 gère le numéro de canal de sortie de l’algorithme sélectionné. Le paramètre concerné ne dépend pas du canal midi.</p>
+
+<h2 id="arpegg">ARPEGG</h2>
+
+<p>Cet algorithme joue l’arpège des notes enregistrées.</p>
+
+<ul>
+  <li><strong>IN</strong> canal MIDI en entrée (OFF, 1 à 16)</li>
+  <li><strong>OUT</strong> canal MIDI en sortie (OFF,1 à 16)</li>
+  <li><strong>RECORD</strong> enregistrement (ON/OFF par pression) des notes une à une</li>
+  <li><strong>PLAY</strong> lancement de l’arpège (ON/OFF par pression)</li>
+  <li><strong>CHANGE</strong> probabilité en % de modifier aléatoirement des notes par leur quinte ou octave au dessus ou au dessous)</li>
+  <li><strong>JUMP</strong> probabilité en % de ne pas jouer un pas</li>
+  <li><strong>GATE</strong> longueur en PPQN (1 / 6 de double croche) de 1 à 5</li>
+  <li><strong>KEY</strong> on ajoute un intervalle de 0 à 11 demi-tons à la note</li>
+</ul>
+
+<p>Les valeurs par défaut sont OFF, OFF, OFF, OFF, 0%, 0%, 3 et 0.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>une fois la séquence enregistrée, elle peut être exécutée par trigger externe</li>
+  <li>la longueur de l’arpège est égal au nombre de notes enregistrées</li>
+  <li>les notes sont jouées à la double-croche</li>
+  <li>un nouvel enregistrement efface le précédent</li>
+  <li>lorsque la probabilité de jouer l’arpège vaut 0%, le choix de la note de substitution est uniforme sur les 5 possibilités</li>
+  <li>lorsque la probabilité de ne pas jouer un pas vaut 100%, alors l’arpège est ignoré</li>
+  <li>on ne peut pas enregistrer et jouer en même temps</li>
+</ul>
+
+<h2 id="compar">COMPAR</h2>
+
+<p>Cet algorithme ne joue que les notes entrées dans un intervalle donnée.</p>
+
+<ul>
+  <li><strong>IN</strong> canal MIDI en entrée (OFF, 1 à 16)</li>
+  <li><strong>OUT</strong> canal MIDI en sortie (OFF,1 à 16)</li>
+  <li><strong>MIN</strong> toute note entrée dont le pitch est strictement inférieur n’est pas jouée</li>
+  <li><strong>MAX</strong> toute note entrée dont le pitch est supérieur au sens large n’est pas jouée</li>
+  <li><strong>KEY</strong> on ajoute un intervalle de 0 à 11 demi-tons à la note entrée</li>
+</ul>
+
+<p>Les valeurs par défaut sont OFF, OFF, C2, C5 et C.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>le minimum possible est C2</li>
+  <li>le maximum possible est C5</li>
+  <li>par défaut C2 est jouée mais pas C5</li>
+  <li>la transposition est effectuée après la comparaison donc si on ajoute une
+ quinte à B5 alors la note transposée est jouée mais si on ajoute une quinte à B1 alors la note n’est pas jouée</li>
+</ul>
+
+<h2 id="delay">DELAY</h2>
+
+<p>Cet algorithme répète une note entrée. La vélocité diminue au fur et à mesure des répétitions.</p>
+
+<ul>
+  <li><strong>IN</strong> canal MIDI en entrée (OFF, 1 à 16)</li>
+  <li><strong>OUT</strong>  canal MIDI en sortie (OFF,1 à 16)</li>
+  <li><strong>REPEAT</strong> nombre de répétitions de 0 à 3</li>
+  <li><strong>PITCH</strong> augmentation ou diminution du pitch à chaque répétition en demi-tons</li>
+  <li><strong>SYNC</strong> la durée en fraction de noire entre deux répétitions</li>
+  <li><strong>FINE</strong> nombre de milliseconds (max 10) en plus ou en moins entre deux répétitions</li>
+</ul>
+
+<p>Les valeurs par défaut sont OFF, OFF, 1, 0, 1/2 et 0.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>pour un synthétiseur monophonique le delay peut fournir un son inattendu à cause de la simultanéité des notes jouées</li>
+</ul>
+
+<h2 id="euclidean">EUCLIDEAN</h2>
+
+<p>Cet algorithme génére deux rythmes euclidiens sur un même canal midi.</p>
+
+<ul>
+  <li><strong>LENGTH</strong> nombre de double croches</li>
+  <li><strong>OUT</strong>  canal MIDI en sortie (OFF,1 à 16)</li>
+  <li><strong>TONE1</strong> pitch de la première séquence</li>
+  <li><strong>TONE2</strong> pitch de la deuxième séquence</li>
+  <li><strong>BEATS1</strong> nombre de pas pour la première séquence valant momentanément 0 par pression</li>
+  <li><strong>BEATS2</strong> nombre de pas pour la deuxième séquence valant momentanément 0 par pression</li>
+  <li><strong>SHIFT1</strong> nombre de double croches de décalage pour la première séquence</li>
+  <li><strong>SHIFT2</strong> nombre de double croches de décalage pour la première séquence</li>
+</ul>
+
+<p>Les valeurs par défaut sont 16, OFF, C1, G1, 4, 4, 0 et 2.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>la longueur est commune aux deux séquences</li>
+  <li>si deux notes tombent sur le même beat, seule celle de la première séquence est jouée</li>
+</ul>
+
+<h2 id="looper">LOOPER</h2>
+
+<p>Cet algorithme enregistre et joue la boucle de notes entrées.</p>
+
+<ul>
+  <li><strong>IN</strong> canal MIDI en entrée (OFF, 1 à 16)</li>
+  <li><strong>OUT</strong>  canal MIDI en sortie (OFF,1 à 16)</li>
+  <li><strong>RECORD</strong> enregistre les notes (ON/OFF par pression)</li>
+  <li><strong>UNDO</strong> efface le précédent enregistrement (ON/OFF par pression)</li>
+  <li><strong>DELETE</strong> efface toute la boucle</li>
+  <li><strong>LENGTH</strong> la longueur de la boucle en double croches</li>
+</ul>
+
+<p>Les valeurs par défaut sont OFF, OFF, OFF, OFF et 16.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>le jeu est quantifié sur les 24 PPQN par noire</li>
+  <li>les notes s’ajoutent à la séquence à chaque enregistrement</li>
+</ul>
+
+<h2 id="random">RANDOM</h2>
+
+<p>Cet algorithme génére une séquence aléatoire de notes.</p>
+
+<ul>
+  <li><strong>LENGTH</strong> la longueur de séquence en double croches</li>
+  <li><strong>OUT</strong>  canal MIDI en sortie (OFF,1 à 16)</li>
+  <li><strong>GATE</strong> longueur en PPQN (1 / 6 de double croche) de 1 à 5</li>
+  <li><strong>FREEZE</strong> boucle sur les dernières notes jouées (ON/OFF par pression)</li>
+  <li><strong>MIN</strong> la plus petite note qu’on peut générer</li>
+  <li><strong>MAX</strong> la plus haute note qu’on peut générer</li>
+  <li><strong>KEY</strong> choix de la tonalité</li>
+  <li><strong>SCALE</strong> la gamme de la tonalité</li>
+</ul>
+
+<p>Les valeurs par défaut sont 3, OFF, 0, OFF, C2, C5, C et CHROMA.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>les gammes sont la gamme chromatique, majeure, pentatonique majeure, mineure harmonique</li>
+  <li>les notes sont prises uniformément dans l’échantillon par exemple pout une pentatonique en C entre C2 et E2, on a une chance sur deux d’avoir C2 ou D2</li>
+  <li>si la longueur est nulle alors aucune note n’est générée</li>
+</ul>
+
+<h2 id="5-seq">5-SEQ</h2>
+
+<p>Cet algorithme est un séquenceur d’au plus 5 pas.</p>
+
+<ul>
+  <li><strong>LENGTH</strong> la longueur de la séquence en double croches de 0 à 5</li>
+  <li><strong>OUT</strong>  canal MIDI en sortie (OFF,1 à 16)</li>
+  <li><strong>NOTE 1</strong> pitch de la note 1</li>
+  <li><strong>NOTE 2</strong> pitch de la note 2</li>
+  <li><strong>NOTE 3</strong> pitch de la note 3</li>
+  <li><strong>NOTE 4</strong> pitch de la note 4</li>
+  <li><strong>NOTE 5</strong> pitch de la note 5</li>
+  <li><strong>SPEED</strong> vitesse d’exécution de la séquence par rapport au tempo. Une vitesse :4 joue une noire</li>
+</ul>
+
+<p>Les valeurs par défaut sont 0, OFF, C2 pour toutes les notes et :1.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>une pression permet d’activer/désactiver la note</li>
+</ul>
+
+<h2 id="time">TIME</h2>
+
+<p>Cet algorithme gère tout l’aspect lié au temps. Par exemple on peut décider si l’outil envoie un signal d’horloge (24 PPQN) ou pas.</p>
+
+<ul>
+  <li><strong>CLOCK</strong> envoie d’un signal ou pas (EXT/INT par pression)</li>
+  <li><strong>OUT</strong>  canal MIDI en sortie pour le métronome (OFF,1 à 16)</li>
+  <li><strong>BPM</strong> indique le tempo pour l’horloge externe ou règle de tempo pour l’horloge interne entre 30 et 240 bpm</li>
+  <li><strong>METER</strong> donne la signature en nombre de noires de 0 à 6 par mesure de 4 temps</li>
+  <li><strong>DOWN</strong> pitch de la première note de la mesure</li>
+  <li><strong>BEAT</strong> pitch pour les autres temps</li>
+  <li><strong>METRON</strong> active le métronome (ON/OFF par pression)</li>
+  <li><strong>VELCTY</strong> valeur commune de la vélocité pour les modules qui n’utilisent pas l’entrée MIDI</li>
+</ul>
+
+<p>Les valeurs par défaut sont EXT, OFF, 120, 0, C5, C2, OFF et 100.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>le métronome peut être utilisé pour un kick</li>
+  <li>le bpm affiché est entier ce qui signifie qu’il est arrondis pour un signal entrant et qu’il n’est pas possible de lui donner une valeur décimale lorsqu’il est généré</li>
+</ul>
+
+<h2 id="données-techniques">DONNÉES TECHNIQUES</h2>
+
+<p><strong>Alimentation</strong> :</p>
+
+<ul>
+  <li>Bus Eurorack : +12v 23mA</li>
+</ul>
+
+<p><strong>Dimensions</strong> :</p>
+
+<ul>
+  <li>largeur : 8HP</li>
+  <li>profondeur : 27mm</li>
+</ul>
+
+<p><strong>Librairies</strong> :</p>
+
+<ul>
+  <li>MIDI Library            5.0.2</li>
+  <li>SPI                     1.0</li>
+  <li>Versatile_RotaryEncoder 1.3.1</li>
+  <li>U8g2                    2.35.30</li>
+  <li>Wire                    1.0</li>
+</ul>
+
+<p><strong>Plateforme</strong> :</p>
+
+<ul>
+  <li>arduino:megaavr         1.8.8</li>
+  <li>thinary:avr             1.0.0</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">CIYLab</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">CIYLab</li><li><a class="u-email" href="mailto:contact@ciylab.com">contact@ciylab.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ciylab"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ciylab</span></a></li><li><a href="https://youtube.com/ciylab"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#youtube"></use></svg> <span class="username">ciylab</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
