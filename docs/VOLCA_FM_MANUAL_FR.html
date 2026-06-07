@@ -47,7 +47,10 @@
     <p><img src="./assets/images/VOLCA_FM_menus.png" alt="Paramètres" /></p>
 
 <h2 id="présentation">PRÉSENTATION</h2>
-<p>Le code permet au module MIDI TOOLS de modifier, par NPRN, 44 des 156 paramètres du Volca FM sous firmware 1.09, réduit à 4-OP pour simplifier la maîtrise FM sur le modèle du Yamaha FB-01. Un contrôleur MIDI externe peut aussi être utilisé (CC1 à CC44).</p>
+<p>Le code permet au module MIDI TOOLS de modifier, par NPRN, 48 des 156 
+paramètres du Volca FM sous firmware 1.09, réduit à 4-OP pour simplifier 
+la maîtrise FM sur le modèle du Yamaha FB-01. Un contrôleur MIDI externe 
+peut aussi être utilisé (CC1 à CC48).</p>
 
 <h2 id="mode-demploi">MODE D’EMPLOI</h2>
 <p>À la mise sous tension, l’écran affiche pendant quelques secondes un message d’information finissant par le numéro de version :</p>
@@ -60,17 +63,17 @@
 
 <p>Pour choisir les paramètres, il faut tourner l’encodeur PARAMETER au-dessus de l’écran.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ALGO    FDBCK   
- ADSR    MINLVL  
- OUT    &gt;LFO     
- PITCH   SCALING
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ALGRTM  FDBACK   
+ ADSR    L4  
+ OUTPUT &gt;LFO     
+ FREQ    SCALE
 </code></pre></div></div>
 
 <p>Ce même encodeur PARAMETER permet (sauf pour le choix de l’algorithme et du feedback) d’afficher la liste des paramètres par simple pression et de sélectionner le paramètre qu’on souhaite modifier.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;SPEED   DELAY   
  DEPTH   WAVE    
- PMS
+ SPITCH
 
 </code></pre></div></div>
 
@@ -80,9 +83,12 @@
 
 <p><strong>Reboot</strong> : une pression longue sur l’encodeur PARAMETER redémarre le module.</p>
 
-<p><strong>Control Change</strong> : le module réagit aux messages CC dont le numéro est celui de l’un des 44 paramètres. Par exemple le CC 2 gère la quantité de feedback. Les changements de valeurs par les CC d’un contrôleur externe s’affichent en temps réel sur l’écran de la page concernant.</p>
+<p><strong>Control Change</strong> : le module réagit aux messages CC dont le numéro est 
+celui de l’un des 48 paramètres. Par exemple le CC 2 gère la quantité de 
+feedback. Les changements de valeurs par les CC d’un contrôleur externe 
+s’affichent en temps réel sur l’écran de la page concernant.</p>
 
-<h2 id="fdbck">FDBCK</h2>
+<h2 id="fdback">FDBACK</h2>
 
 <p>Le niveau de ré-insertion du signal. Provoque en général une saturation assimilable à du bruit.</p>
 
@@ -107,15 +113,16 @@
 
 <p><img src="./assets/images/EG.jpg" alt="enveloppe du DX7" /></p>
 
-<p>Ici nous choissisons A = R1, D = R2, S = L3, R = R4, L2 = L3 et R3 = 0. Le volume minimal est L4 (paramètre de la page MINLVL) initialisé au maximum pour un son tenue comme sur un synthétiseur analogique.</p>
+<p>Ici nous choissisons A = R1, D = R2, S = L3, R = R4, L2 = L3 et R3 = 0. Le volume minimal est L4 (paramètre de la page L4) initialisé au maximum pour un son tenue comme sur un synthétiseur analogique.</p>
 
-<h2 id="algo">ALGO</h2>
+<h2 id="algrtm">ALGRTM</h2>
 
 <p>Pour le choix de l’un des 8 algorithmes, le premier par défaut.</p>
 
 <h3 id="correspondance-des-numéros-dalgorithme">Correspondance des numéros d’algorithme</h3>
 
-<p>Les opérateurs 1 et 2 du volca sont désactivés</p>
+<p>Les opérateurs 1 et 2 du volca sont désactivés. Voici le tableau des
+correspondances :</p>
 
 <table>
   <thead>
@@ -218,6 +225,532 @@
     *  *  *  *
 </code></pre></div></div>
 
+<h2 id="freq">FREQ</h2>
+
+<p>Cette page gère le rapport des fréquences pour chaque opéateurs.</p>
+
+<ul>
+  <li><strong>COAR</strong> le rapport grossier (coarse) des fréquences de 0.5 à 31</li>
+  <li><strong>FINE</strong> le rapport fin (fine) des fréquences de 1 à 2</li>
+</ul>
+
+<p>Les valeurs par défaut sont 1 et 0 : la note entendue est la note jouée.</p>
+
+<p><em>Remarques</em></p>
+
+<ul>
+  <li>lorsque COAR est 2 puissance n alors la note entendue est la note jouée
+à l’octave n.</li>
+  <li>voici le tableau des valeurs de FINE en fonction de COARSE permettant 
+d’ajuster le pitch des notes :</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>coarse</th>
+      <th>C</th>
+      <th>C#</th>
+      <th>D</th>
+      <th>D#</th>
+      <th>E</th>
+      <th>F</th>
+      <th>F#</th>
+      <th>G</th>
+      <th>G#</th>
+      <th>A</th>
+      <th>A#</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.5</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+      <td>33</td>
+      <td>41</td>
+      <td>50</td>
+      <td>59</td>
+      <td>68</td>
+      <td>78</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+      <td>33</td>
+      <td>41</td>
+      <td>50</td>
+      <td>59</td>
+      <td>68</td>
+      <td>78</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+      <td>33</td>
+      <td>41</td>
+      <td>50</td>
+      <td>59</td>
+      <td>68</td>
+      <td>78</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>33</td>
+      <td>41</td>
+      <td>50</td>
+      <td>59</td>
+      <td>68</td>
+      <td>78</td>
+      <td>89</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+      <td>33</td>
+      <td>41</td>
+      <td>50</td>
+      <td>59</td>
+      <td>68</td>
+      <td>78</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>60</td>
+      <td>70</td>
+      <td>80</td>
+      <td>90</td>
+      <td>1</td>
+      <td>7</td>
+      <td>13</td>
+      <td>20</td>
+      <td>27</td>
+      <td>35</td>
+      <td>43</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>33</td>
+      <td>41</td>
+      <td>50</td>
+      <td>59</td>
+      <td>68</td>
+      <td>78</td>
+      <td>89</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>14</td>
+      <td>21</td>
+      <td>28</td>
+      <td>36</td>
+      <td>44</td>
+      <td>53</td>
+      <td>62</td>
+      <td>71</td>
+      <td>81</td>
+      <td>92</td>
+      <td>2</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+      <td>33</td>
+      <td>41</td>
+      <td>50</td>
+      <td>59</td>
+      <td>68</td>
+      <td>78</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>78</td>
+      <td>88</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+      <td>33</td>
+      <td>41</td>
+      <td>49</td>
+      <td>58</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>60</td>
+      <td>70</td>
+      <td>80</td>
+      <td>90</td>
+      <td>1</td>
+      <td>7</td>
+      <td>13</td>
+      <td>20</td>
+      <td>27</td>
+      <td>35</td>
+      <td>43</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>45</td>
+      <td>54</td>
+      <td>63</td>
+      <td>73</td>
+      <td>83</td>
+      <td>94</td>
+      <td>3</td>
+      <td>9</td>
+      <td>15</td>
+      <td>22</td>
+      <td>30</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>33</td>
+      <td>41</td>
+      <td>50</td>
+      <td>59</td>
+      <td>68</td>
+      <td>78</td>
+      <td>89</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>23</td>
+      <td>30</td>
+      <td>38</td>
+      <td>46</td>
+      <td>55</td>
+      <td>64</td>
+      <td>74</td>
+      <td>84</td>
+      <td>95</td>
+      <td>3</td>
+      <td>10</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>14</td>
+      <td>21</td>
+      <td>28</td>
+      <td>36</td>
+      <td>44</td>
+      <td>53</td>
+      <td>62</td>
+      <td>71</td>
+      <td>81</td>
+      <td>92</td>
+      <td>2</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>7</td>
+      <td>13</td>
+      <td>20</td>
+      <td>27</td>
+      <td>34</td>
+      <td>42</td>
+      <td>51</td>
+      <td>60</td>
+      <td>69</td>
+      <td>79</td>
+      <td>90</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+      <td>33</td>
+      <td>41</td>
+      <td>50</td>
+      <td>59</td>
+      <td>68</td>
+      <td>78</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>88</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+      <td>33</td>
+      <td>41</td>
+      <td>49</td>
+      <td>58</td>
+      <td>68</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>78</td>
+      <td>88</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+      <td>33</td>
+      <td>41</td>
+      <td>49</td>
+      <td>58</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>68</td>
+      <td>78</td>
+      <td>89</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+      <td>34</td>
+      <td>42</td>
+      <td>50</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>60</td>
+      <td>70</td>
+      <td>80</td>
+      <td>90</td>
+      <td>1</td>
+      <td>7</td>
+      <td>13</td>
+      <td>20</td>
+      <td>27</td>
+      <td>35</td>
+      <td>43</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>52</td>
+      <td>61</td>
+      <td>71</td>
+      <td>81</td>
+      <td>92</td>
+      <td>2</td>
+      <td>8</td>
+      <td>14</td>
+      <td>21</td>
+      <td>28</td>
+      <td>36</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>45</td>
+      <td>54</td>
+      <td>63</td>
+      <td>73</td>
+      <td>83</td>
+      <td>94</td>
+      <td>3</td>
+      <td>9</td>
+      <td>15</td>
+      <td>22</td>
+      <td>30</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>39</td>
+      <td>47</td>
+      <td>56</td>
+      <td>65</td>
+      <td>75</td>
+      <td>86</td>
+      <td>97</td>
+      <td>4</td>
+      <td>10</td>
+      <td>17</td>
+      <td>24</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>33</td>
+      <td>41</td>
+      <td>50</td>
+      <td>59</td>
+      <td>68</td>
+      <td>78</td>
+      <td>89</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>19</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>28</td>
+      <td>36</td>
+      <td>44</td>
+      <td>52</td>
+      <td>61</td>
+      <td>71</td>
+      <td>81</td>
+      <td>92</td>
+      <td>2</td>
+      <td>8</td>
+      <td>14</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>23</td>
+      <td>30</td>
+      <td>38</td>
+      <td>46</td>
+      <td>55</td>
+      <td>64</td>
+      <td>74</td>
+      <td>84</td>
+      <td>95</td>
+      <td>3</td>
+      <td>10</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>19</td>
+      <td>26</td>
+      <td>33</td>
+      <td>41</td>
+      <td>49</td>
+      <td>58</td>
+      <td>68</td>
+      <td>78</td>
+      <td>88</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>14</td>
+      <td>21</td>
+      <td>28</td>
+      <td>36</td>
+      <td>44</td>
+      <td>53</td>
+      <td>62</td>
+      <td>71</td>
+      <td>81</td>
+      <td>92</td>
+      <td>2</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>10</td>
+      <td>17</td>
+      <td>24</td>
+      <td>31</td>
+      <td>39</td>
+      <td>47</td>
+      <td>56</td>
+      <td>65</td>
+      <td>75</td>
+      <td>86</td>
+      <td>97</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>7</td>
+      <td>13</td>
+      <td>20</td>
+      <td>27</td>
+      <td>34</td>
+      <td>42</td>
+      <td>51</td>
+      <td>60</td>
+      <td>69</td>
+      <td>79</td>
+      <td>90</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>3</td>
+      <td>9</td>
+      <td>16</td>
+      <td>23</td>
+      <td>30</td>
+      <td>38</td>
+      <td>46</td>
+      <td>55</td>
+      <td>64</td>
+      <td>74</td>
+      <td>84</td>
+      <td>95</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="l4">L4</h2>
+
+<p>Cette page gère le niveau minimum du son avant et après l’application de l’enveloppe (paramètre L4 du DX7). La valeur 0 correspond au cas classique où le son n’est produit que pendant la durée de l’enveloppe. La valeur maximum de 99 correspond au cas où la durée du son est théoriquement infinie comme pour un synthétiseur analogique.</p>
+
 <h2 id="lfo">LFO</h2>
 
 <p>Cette page gère l’action du LFO sur le pitch (effet de vibrato) :</p>
@@ -227,7 +760,7 @@
   <li><strong>DELAY</strong> durée avant activation</li>
   <li><strong>DEPTH</strong> amplitude</li>
   <li><strong>WAVE</strong> forme de l’enveloppe</li>
-  <li><strong>MSP</strong> sensibilité</li>
+  <li><strong>SPITCH</strong> sensibilité du pitch</li>
 </ul>
 
 <p>Les valeurs par défaut sont nulles.</p>
@@ -239,42 +772,27 @@
   <li>l’enveloppe 5 est aléatoire</li>
 </ul>
 
-<h2 id="minlvl">MINLVL</h2>
-
-<p>Cette page gère le niveau minimum du son avant et après l’application de l’enveloppe (paramètre L4 du DX7). La valeur 0 correspond au cas classique où le son n’est produit que pendant la durée de l’enveloppe. La valeur maximum de 99 correspond au cas où la durée du son est infinie.</p>
-
-<h2 id="out">OUT</h2>
+<h2 id="output">OUTPUT</h2>
 
 <p>Cette page gère le niveau de sortie pour chaque opérateurs. Le résultat audio est défférent s’il s’agit d’une porteuse ou d’un modulateur.</p>
 
 <ul>
-  <li><strong>LVL</strong> le niveau de sortie</li>
+  <li><strong>OLVL</strong> le niveau de sortie</li>
   <li><strong>KVS</strong> sensibilité au clavier (0 = amplitude indépendante toujours au maximum)</li>
 </ul>
 
 <p>Les valeurs par défaut sont 99 et 0.</p>
 
-<h2 id="pitch">PITCH</h2>
-
-<p>Cette page gère le rapport des fréquences pour chaque opéateurs.</p>
-
-<ul>
-  <li><strong>FREQ</strong> le rapport des fréquences</li>
-</ul>
-
-<p>Les valeurs par défaut sont 0 correspondant à l’octave inférieure.</p>
-
-<h2 id="scaling">SCALING</h2>
+<h2 id="scale">SCALE</h2>
 
 <p>Cette page gère l’amplitude sonore en fonction de la position de la note par rapport à une note de référence (break point)</p>
 
 <ul>
-  <li><strong>LDE</strong> le niveau gauche</li>
-  <li><strong>RDE</strong> le niveau droit</li>
-  <li><strong>LCU</strong> la courbe gauche de sensibilité</li>
-  <li><strong>RCU</strong> la courbe droite de sensibilité</li>
-  <li><strong>BRK</strong> note de référence</li>
-  <li><strong>KRS</strong> sensibilité au clavier</li>
+  <li><strong>LDEPTH</strong> le niveau gauche</li>
+  <li><strong>RDEPTH</strong> le niveau droit</li>
+  <li><strong>LCURVE</strong> la courbe gauche de sensibilité</li>
+  <li><strong>RCURVE</strong> la courbe droite de sensibilité</li>
+  <li><strong>BREAK</strong> note de référence</li>
 </ul>
 
 <p>Les valeurs par défaut sont nulles.</p>
@@ -282,7 +800,7 @@
 <p><em>Remarques</em></p>
 
 <ul>
-  <li>par exemple si on monte RDE alors les notes à droite de BRK seront moins audible.</li>
+  <li>par exemple si on monte RDEPTH alors les notes à droite de BREAK seront moins audible.</li>
   <li>le réglage ne porte que sur le premier opérateur en général porteur.</li>
 </ul>
 
