@@ -44,7 +44,7 @@
   </header>
 
   <div class="post-content">
-    <p><img src="docs/assets/images/CVGATE_TOOLS_menus.png" alt="Paramètres" /></p>
+    <p><img src="assets/images/CVGATE_TOOLS_menus.png" alt="Paramètres" /></p>
 
 <h2 id="présentation">PRÉSENTATION</h2>
 <p>Ce code permet au module CVGATE TOOLS de générer des CV et GATE suivant certains algorithmes. Il est autonome sur le rack et ne nécessite aucune entrée sauf éventuellement une horloge extérieure. Compte tenu de l’alimentation possible en 5 volts par USB et des contraintes du DAC, la note maximale est B4 (minimale C0 = 0 volt).</p>
@@ -89,7 +89,37 @@
 
 <p><strong>Reboot</strong> : une pression longue sur l’encodeur PARAMETER affichant la liste redémarre le module.</p>
 
-<h2 id="euclidean">EUCLIDEAN</h2>
+<h2 id="données-techniques">DONNÉES TECHNIQUES</h2>
+
+<p><strong>Alimentation</strong> :</p>
+
+<ul>
+  <li>Bus Eurorack : +12v 40mA</li>
+</ul>
+
+<p><strong>Dimensions</strong> :</p>
+
+<ul>
+  <li>largeur : 12HP</li>
+  <li>profondeur : 27mm</li>
+</ul>
+
+<p><strong>Librairies</strong> :</p>
+
+<ul>
+  <li>SPI                     1.0</li>
+  <li>Versatile_RotaryEncoder 1.3.1</li>
+  <li>U8g2                    2.35.30</li>
+  <li>Wire                    1.0</li>
+</ul>
+
+<p><strong>Plateforme</strong> :</p>
+
+<ul>
+  <li>thinary:avr   1.0.0
+    <h2 id="euclidean">EUCLIDEAN</h2>
+  </li>
+</ul>
 
 <p>Cet algorithme génére deux rythmes euclidiens. Par chaque rythme :</p>
 
@@ -172,7 +202,50 @@
   <li>le bpm affiché est entier ce qui signifie qu’il est arrondis pour un signal entrant et qu’il n’est pas possible de lui donner une valeur décimale lorsqu’il est généré</li>
 </ul>
 
-<h2 id="données-techniques">DONNÉES TECHNIQUES</h2>
+<h2 id="présentation-1">PRÉSENTATION</h2>
+<p>Ce code permet au module CVGATE TOOLS de générer des CV et GATE suivant certains algorithmes. Il est autonome sur le rack et ne nécessite aucune entrée sauf éventuellement une horloge extérieure. Compte tenu de l’alimentation possible en 5 volts par USB et des contraintes du DAC, la note maximale est B4 (minimale C0 = 0 volt).</p>
+
+<h2 id="mode-demploi-1">MODE D’EMPLOI</h2>
+
+<p>À la mise sous tension les leds s’allument à tour de rôle puis l’écran affiche pendant quelques secondes un message d’information :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> RHYTHM BOX
+ AND
+ SEQUENCER
+ vx.y.z
+</code></pre></div></div>
+
+<p>suivi du numéro de version.</p>
+
+<p>Pour choisir un des algorithmes installés, il faut tourner l’encodeur PARAMETER au-dessus de l’écran.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;TIME
+ EUCLIDEAN
+ 5-SEQ
+ RANDOM
+</code></pre></div></div>
+
+<p>Ce même encodeur PARAMETER permet ensuite d’afficher la liste des paramètres par simple pression et de sélectionner le paramètre qu’on souhaite modifier.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> CLOCK  CHAOS
+&gt;BPM
+ MULT
+ DIVIDE
+</code></pre></div></div>
+
+<p>Une nouvelle pression permet de revenir à la liste des algorithmes.</p>
+
+<p>Une fois le paramètre sélectionné, l’encodeur VALUE à gauche de l’écran permet d’en modifier la valeur. À noter qu’une rotation d’un seul cran de l’encodeur VALUE affiche la valeur sans la modifier. On modifie la valeur par rotation ou par pression suivant le type de paramètre.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> CLOCK  CHAOS
+&gt; 80
+ MULT
+ DIVIDE
+</code></pre></div></div>
+
+<p><strong>Reboot</strong> : une pression longue sur l’encodeur PARAMETER affichant la liste redémarre le module.</p>
+
+<h2 id="données-techniques-1">DONNÉES TECHNIQUES</h2>
 
 <p><strong>Alimentation</strong> :</p>
 
