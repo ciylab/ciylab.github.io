@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="fr-FR"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>About | CIYLab</title>
+<title>BOUNCING_BALL | CIYLab</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="About" />
-<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="BOUNCING_BALL" />
+<meta name="author" content="Pierrick MEIGNEN" />
+<meta property="og:locale" content="fr_FR" />
 <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
 <meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="/about/" />
-<meta property="og:url" content="/about/" />
+<link rel="canonical" href="/BOUNCING_BALL_MANUAL_FR.html" />
+<meta property="og:url" content="/BOUNCING_BALL_MANUAL_FR.html" />
 <meta property="og:site_name" content="CIYLab" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="About" />
+<meta property="twitter:title" content="BOUNCING_BALL" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"About","name":"CIYLab","url":"/about/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Pierrick MEIGNEN"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"BOUNCING_BALL","url":"/BOUNCING_BALL_MANUAL_FR.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="CIYLab" /></head>
 <body><header class="site-header" role="banner">
@@ -39,11 +40,39 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">About</h1>
+    <h1 class="post-title">BOUNCING_BALL</h1>
   </header>
 
   <div class="post-content">
-    
+    <p><img src="docs/assets/images/BOUNCING_BALL_menus.png" alt="Paramètres" /></p>
+
+<h2 id="ball">BALL</h2>
+
+<p>Gère la trajectoire de la balle = position (x, y).</p>
+
+<p>À chaque impact une note est jouée.</p>
+
+<p>Les tempos sont constants sur chaque murs opposés mais pas synchronisés.</p>
+
+<h2 id="display">DISPLAY</h2>
+
+<p>Gère l’affichage OLED :</p>
+
+<ul>
+  <li>balle ponctuelle</li>
+  <li>taille du cadre</li>
+</ul>
+
+<h2 id="encoder">ENCODER</h2>
+
+<p>L’encodeur <strong>PARAMETER</strong> modifie l’angle de la trajectoire.</p>
+
+<p>L’encodeur <strong>VALUE</strong> modifie la taille du cadre.</p>
+
+<h2 id="midi">MIDI</h2>
+
+<p>Le canal MIDI est 1 et les notes MIDI valent 24 et 48 (C2 et C4 ?)</p>
+
 
   </div>
 
